@@ -21,11 +21,11 @@ void receive_file(int sockfd){
             break;
             return;
         }
-    //write data to file
-    fprintf(fp, "%s", data_buf);
+        //write data to file
+        fprintf(fp, "%s", data_buf);
 
-    //zero out buffer
-    bzero(data_buf, SIZE);
+        //zero out buffer
+        bzero(data_buf, SIZE);
     }
     return;
 }
