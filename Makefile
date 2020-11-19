@@ -11,3 +11,4 @@ all: server.c client.c
 clean:
 	rm client
 	rm server
+	rm rec.txt
