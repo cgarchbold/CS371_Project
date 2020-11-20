@@ -47,25 +47,28 @@ int main(){
     }
     printf("- Socket created successfully. \n");
 
-    //add server struct information
+    //Add server struct information
     pass_server_addr.sin_family = AF_INET;
     pass_server_addr.sin_port = port;
     pass_server_addr.sin_addr.s_addr = inet_addr(ip);
 
+    //Bind address to socket
     if( bind(pass_sockfd, (struct sockaddr*)&pass_server_addr, sizeof(pass_server_addr)) < 0){
         perror("*** Error binding, exiting... ***");
         exit(1);
     }
     printf("- Binding successful. \n");
 
+    //Listen for connection
     if(listen(pass_sockfd, 10) == 0){
         printf("- Listening....\n");
-    }else{
+    }
+    else{
         perror("*** Error listening, exiting... ***");
         exit(1);
     }
 
-    //accept connection, and wait for transfer
+    //Accept connection, and wait for transfer
     socklen_t size = sizeof(con_server_addr);
     con_sockfd = accept(pass_sockfd, (struct sockaddr*)&con_server_addr, &size );
 

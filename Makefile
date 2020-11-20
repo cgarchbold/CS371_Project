@@ -9,6 +9,6 @@ all: server.c client.c
 	gcc -o client client.c
 
 clean:
-	rm client
-	rm server
-	rm rec.txt
+	rm -f client
+	rm -f server
+	rm -f rec.txt

@@ -7,7 +7,6 @@
 
 #define SIZE 1024
 
-// write a function that takes a socket, 
 void transfer(FILE *fp, int sockfd){
 
     char data_buf[SIZE] = {0};
@@ -24,14 +23,22 @@ void transfer(FILE *fp, int sockfd){
     }
 }
 
-int main(){
+int main( int argc, char *argv[] ){
 
-    //Define some parameters
+    char *filename;
+    char *ip;
 
-    char *ip = "127.0.0.1";
+    //Read in command line input
+    if( argc > 3 | argc <=2 ) {
+        printf("*** Please supply two arguments. Supply a filename and an IP address, exiting... *** \n");
+        exit(0);
+    }else{
+        filename = argv[1];
+        ip = argv[2];
+    }
+
+    //Define port
     int port =  8080;
-
-    char *filename = "test.txt";
 
     // Attempt to open the file
     FILE *fp = fopen(filename, "r");
