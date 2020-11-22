@@ -30,4 +30,5 @@ To test file tranfer:
 Impotant Information:
 
     - The server IP is contained in server.c within the main function, by default it is 127.0.0.1
-    - 
+    - I was unable to test transferring files between machines, due to port forwarding needed.
+    
