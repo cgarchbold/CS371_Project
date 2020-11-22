@@ -59,7 +59,7 @@ int main( int argc, char *argv[] ){
     }
     printf("- Socket created successfully. \n");
 
-    //add server struct information
+    //Add server struct information
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = port;
     server_addr.sin_addr.s_addr = inet_addr(ip);
@@ -75,6 +75,7 @@ int main( int argc, char *argv[] ){
     transfer(fp, sockfd);
     printf("- File Sent Successfully. \n");
 
+    //Close connection
     close(sockfd);
     printf("- Connection closed. \n");
 

@@ -10,18 +10,24 @@ The client program takes input, specifically the path to the file to upload to t
 
 To compile this application:
 
-    $ make all
+    '$ make all'
 
 To test file tranfer:
 
     In one terminal instance:
     
-    $ ./server
+    '$ ./server'
 
     In another terminal instance, potentially another machine:
 
-    $ ./client {filename} {IP address}
+    '$ ./client {filename} {IP address}'
     
         For example, 
         
-        $./client test.txt 127.0.0.1
+        '$./client test.txt 127.0.0.1'
+
+
+Impotant Information:
+
+    - The server IP is contained in server.c within the main function, by default it is 127.0.0.1
+    - 
