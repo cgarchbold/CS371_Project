@@ -29,7 +29,7 @@ int main( int argc, char *argv[] ){
     char *ip;
 
     //Read in command line input
-    if( argc > 3 | argc <=2 ) {
+    if( (argc > 3) | (argc <=2) ) {
         printf("*** Please supply two arguments. Supply a filename and an IP address, exiting... *** \n");
         exit(0);
     }else{
