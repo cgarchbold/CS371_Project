@@ -59,22 +59,25 @@ int main(){
     }
     printf("- Binding successful. \n");
 
-    //Listen for connection
-    if(listen(pass_sockfd, 10) == 0){
-        printf("- Listening....\n");
-    }
-    else{
-        perror("*** Error listening, exiting... ***");
-        exit(1);
-    }
 
-    //Accept connection, and wait for transfer
-    socklen_t size = sizeof(con_server_addr);
-    con_sockfd = accept(pass_sockfd, (struct sockaddr*)&con_server_addr, &size );
+    while(1){
+        //Listen for connection
+        if(listen(pass_sockfd, 10) == 0){
+            printf("- Listening....\n");
+        }
+        else{
+            perror("*** Error listening, exiting... ***");
+            exit(1);
+        }
 
-    //receive and write file
-    receive_file(con_sockfd);
-    printf("- Transfer Received.\n");
+        //Accept connection, and wait for transfer
+        socklen_t size = sizeof(con_server_addr);
+        con_sockfd = accept(pass_sockfd, (struct sockaddr*)&con_server_addr, &size );
+
+        //receive and write file
+        receive_file(con_sockfd);
+        printf("- Transfer Received.\n");
+    }
 
     return 0;
 }
